@@ -1,0 +1,34 @@
+{
+  "name": "matiasmonas.dev",
+  "version": "0.0.0",
+  "description": "Personal website",
+  "author": "Matias M. Monasterio",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint --fix",
+    "commit": "git cz"
+  },
+  "dependencies": {
+    "@chakra-ui/react": "1.8.3",
+    "@emotion/react": "11",
+    "@emotion/styled": "11",
+    "framer-motion": "6",
+    "next": "12.1.0",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-icons": "4.3.1"
+  },
+  "devDependencies": {
+    "cz-conventional-changelog": "3.3.0",
+    "eslint": "8.9.0",
+    "eslint-config-next": "12.1.0",
+    "eslint-config-prettier": "8.4.0",
+    "eslint-plugin-prettier": "4.0.0",
+    "git-cz": "4.8.0",
+    "prettier": "2.5.1"
+  }
+}

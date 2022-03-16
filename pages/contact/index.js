@@ -27,6 +27,7 @@ import { RiMailSendLine, RiErrorWarningLine } from "react-icons/ri";
 
 import { Section } from "components/common/Section";
 import { NextPageLink } from "components/common/NextPageLink";
+import { sendContactForm } from "services/contact";
 
 export default function Experience() {
   const [formState, setFormState] = useState({
@@ -56,27 +57,34 @@ export default function Experience() {
     message: Yup.string().required("El mensaje es requerido"),
   });
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     setFormState((formState) => ({ ...formState, loading: true }));
 
-    setTimeout(() => {
-      setFormState({ showModal: true, loading: false });
-      formik.resetForm();
+    const { error } = await sendContactForm(formik.values);
 
-      // setModalMessage({
-      //   title: "Mmmm... Algo salio mal",
-      //   message: "Intente nuevamente más tarde",
-      //   success: false,
-      //   icon: <RiErrorWarningLine />,
-      // });
+    setFormState((formState) => ({
+      ...formState,
+      loading: false,
+      showModal: true,
+    }));
 
+    if (error) {
+      setModalMessage({
+        title: "Mmmm... Algo salio mal",
+        message: "Intente nuevamente más tarde",
+        success: false,
+        icon: <RiErrorWarningLine />,
+      });
+    } else {
       setModalMessage({
         title: "En hora buena!",
-        message: "Estaré en contacto lo mas pronto posible",
+        message: "Resivirá un correo de confirmacion de envio",
         success: true,
         icon: <RiMailSendLine />,
       });
-    }, 5000);
+
+      formik.resetForm();
+    }
   };
 
   const formik = useFormik({
@@ -110,7 +118,7 @@ export default function Experience() {
                 <Stack
                   as="form"
                   onSubmit={formik.handleSubmit}
-                  autocomplete="off"
+                  autoComplete="off"
                 >
                   <FormControl
                     isInvalid={formik.submitCount && formik.errors.name}
@@ -167,7 +175,10 @@ export default function Experience() {
                     borderColor="gray.700"
                     color="gray.500"
                     borderRadius={2}
-                    disabled={formik.submitCount && !formik.isValid}
+                    disabled={
+                      formState.loading ||
+                      (formik.submitCount && !formik.isValid)
+                    }
                   >
                     {formState.loading ? <Spinner /> : "Enviar"}
                   </Button>

@@ -16,7 +16,7 @@ export const Head = ({ title, description, image }) => {
       <title>{title}</title>
       <link rel="icon" type="image/x-icon" href="favicon.ico" />
 
-      <meta charset="utf-8" />
+      <meta charSet="utf-8" />
       <meta
         name="viewport"
         content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
@@ -25,19 +25,32 @@ export const Head = ({ title, description, image }) => {
       <meta name="description" content={description} />
       <meta name="image" content={metaImage} />
 
+      {/* TWITTER */}
       <meta name="twitter:title" content={title} />
-      <meta name="twitter:card" content="twitterCard" />
+      <meta name="twitter:card" content="summary" />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={metaImage} />
       <meta name="twitter:image:alt" content={title} />
 
+      {/* FACEBOOK */}
       <meta name="og:title" content={title} />
       <meta name="og:description" content={description} />
       <meta name="og:image" content={metaImage} />
       <meta name="og:image:secure_url" content={metaImage} />
       <meta name="og:image:alt" content={title} />
+      <meta name="og:type" content="website" />
       <meta property="og:image:width" content="1280" />
       <meta property="og:image:height" content="720" />
+
+      {/* LINKEDIN */}
+      <meta name="name" property="og:title" content={title} />
+      <meta property="og:type" content="website" />
+      <meta name="image" property="og:image" content={metaImage} />
+      <meta
+        name="description"
+        property="og:description"
+        content={description}
+      />
     </NextHead>
   );
 };

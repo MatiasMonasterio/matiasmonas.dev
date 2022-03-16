@@ -9,7 +9,7 @@ import NextHead from "next/head";
 import PropTypes from "prop-types";
 
 export const Head = ({ title, description, image }) => {
-  const metaImage = () => (image ? image : "Default image url");
+  const metaImage = image ? image : "static/images/banner.png";
 
   return (
     <NextHead>

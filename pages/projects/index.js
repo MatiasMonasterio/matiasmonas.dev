@@ -7,6 +7,7 @@ import {
   GridItem,
 } from "@chakra-ui/react";
 
+import { Head } from "components/common/Head";
 import { Section } from "components/common/Section";
 import { NextPageLink } from "components/common/NextPageLink";
 
@@ -52,43 +53,49 @@ const projects = [
 
 export default function Experience() {
   return (
-    <Box bg="gray.800" color="gray.300">
-      <Box as="main">
-        <Center>
-          <Section>
-            <Container maxW="container.md">
-              <Box mb={10}>
-                <Heading
-                  as="h2"
-                  size="md"
-                  borderBottom="1px"
-                  borderColor="gray.700"
-                  py={2}
-                  mb={6}
-                >
-                  Proyectos Destacados
-                </Heading>
+    <>
+      <Head
+        title="Proyectos Destactados | Matias M. Monasterio"
+        description="Proyectos destacados utilizando diferentes tecnologías web"
+      />
+      <Box bg="gray.800" color="gray.300">
+        <Box as="main">
+          <Center>
+            <Section>
+              <Container maxW="container.md">
+                <Box mb={10}>
+                  <Heading
+                    as="h2"
+                    size="md"
+                    borderBottom="1px"
+                    borderColor="gray.700"
+                    py={2}
+                    mb={6}
+                  >
+                    Proyectos Destacados
+                  </Heading>
 
-                <Grid
-                  templateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }}
-                  rowGap={16}
-                  columnGap={6}
-                >
-                  {projects.map((project) => (
-                    <GridItem key={project.title}>
-                      <ProjectCard {...project} />
-                    </GridItem>
-                  ))}
-                </Grid>
-              </Box>
+                  <Grid
+                    templateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }}
+                    rowGap={16}
+                    columnGap={6}
+                  >
+                    {projects.map((project) => (
+                      <GridItem key={project.title}>
+                        <ProjectCard {...project} />
+                      </GridItem>
+                    ))}
+                  </Grid>
+                </Box>
 
-              <Box display="flex" justifyContent="end">
-                <NextPageLink href="/contact">Contacto</NextPageLink>
-              </Box>
-            </Container>
-          </Section>
-        </Center>
+                <Box display="flex" justifyContent="end">
+                  <NextPageLink href="/contact">Contacto</NextPageLink>
+                </Box>
+              </Container>
+            </Section>
+          </Center>
+        </Box>
       </Box>
-    </Box>
+    </>
   );
 }

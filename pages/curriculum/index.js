@@ -21,6 +21,7 @@ import { BsGithub, BsLinkedin } from "react-icons/bs";
 import { SiSitepoint } from "react-icons/si";
 import { BiArrowBack, BiLoaderAlt, BiDownload } from "react-icons/bi";
 
+import { Head } from "components/common/Head";
 import { Section } from "components/curriculum/Section";
 import { SectionTitle } from "components/curriculum/SectionTitle";
 import { EducationRow } from "components/curriculum/EducationRow";
@@ -164,6 +165,11 @@ export default function Curriculum() {
 
   return (
     <>
+      <Head
+        title="Curriculum | Matias M. Monasterio"
+        description="Visita y descarga mi Curriculum"
+      />
+
       <AspectRatio
         bg="white"
         maxW="800px"

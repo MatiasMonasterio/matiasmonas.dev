@@ -17,7 +17,7 @@ import {
 } from "@chakra-ui/react";
 
 import { NavLink } from "./NavLink";
-import { Logo } from "components/common/Logo";
+import { Logo } from "components/common";
 
 import { motion } from "framer-motion";
 const MotionBox = motion(Box);

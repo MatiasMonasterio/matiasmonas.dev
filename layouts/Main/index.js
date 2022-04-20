@@ -3,11 +3,10 @@ const { motion } = require("framer-motion");
 import dynamic from "next/dynamic";
 
 import { Box, usePrefersReducedMotion, Container } from "@chakra-ui/react";
-import { Navbar } from "components/common/Navbar";
-import { Footer } from "components/common/Footer";
+import { Footer, Navbar } from "components/common";
 
 const Noise = dynamic(() =>
-  import("components/common/Noise").then(({ Noise }) => Noise)
+  import("components/common").then(({ Noise }) => Noise)
 );
 
 export const Main = ({ children }) => {

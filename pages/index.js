@@ -1,4 +1,4 @@
-import { Head } from "components/common/Head";
+import { Head } from "components/common";
 import { BsLinkedin, BsGithub, BsTwitter } from "react-icons/bs";
 import { BiLinkExternal } from "react-icons/bi";
 import {

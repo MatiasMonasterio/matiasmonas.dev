@@ -160,7 +160,7 @@ export default function Curriculum() {
   };
 
   const handleNavigationBack = () => {
-    router.back();
+    router.push("/");
   };
 
   return (
@@ -185,7 +185,7 @@ export default function Curriculum() {
             h="100%"
             position="relative"
           >
-            <Box position="absolute" w="100%" bg="gray.100" top="3.5rem">
+            <Box position="absolute" w="100%" bg="#ededed" top="3.5rem">
               <Grid
                 templateColumns="250px 1fr"
                 w="100%"
@@ -210,19 +210,19 @@ export default function Curriculum() {
                 </GridItem>
                 <GridItem px={8}>
                   <Heading as="h1">{profile.name}</Heading>
-                  <Text fontSize="lg" fontStyle="italic" color="gray.500">
+                  <Text fontSize="lg" fontStyle="italic" color="blackAlpha.700">
                     {profile.position}
                   </Text>
                 </GridItem>
               </Grid>
             </Box>
 
-            <GridItem bg="gray.800" color="gray.200" px={6} pt={64}>
+            <GridItem bg="blackAlpha.900" color="whiteAlpha.700" px={6} pt={64}>
               <Section>
                 <SectionTitle
-                  backgroundColor="gray.800"
-                  color="gray.300"
-                  lineColor="gray.500"
+                  backgroundColor="#141414"
+                  color="whiteAlpha.900"
+                  lineColor="whiteAlpha.400"
                 >
                   Datos
                 </SectionTitle>
@@ -236,9 +236,9 @@ export default function Curriculum() {
 
               <Section>
                 <SectionTitle
-                  backgroundColor="gray.800"
-                  color="gray.300"
-                  lineColor="gray.500"
+                  backgroundColor="#141414"
+                  color="whiteAlpha.900"
+                  lineColor="whiteAlpha.400"
                 >
                   Idiomas
                 </SectionTitle>
@@ -252,16 +252,16 @@ export default function Curriculum() {
 
               <Section>
                 <SectionTitle
-                  backgroundColor="gray.800"
-                  color="gray.300"
-                  lineColor="gray.500"
+                  backgroundColor="#141414"
+                  color="whiteAlpha.900"
+                  lineColor="whiteAlpha.400"
                 >
                   Skills
                 </SectionTitle>
 
                 {profile.skills.map(({ group, items }) => (
                   <Box mb={4} key={group}>
-                    <Heading as="h3" size="xs">
+                    <Heading as="h3" size="xs" color="whiteAlpha.800">
                       {group}
                     </Heading>
                     <UnorderedList styleType="none" size="xs" ml={0}>
@@ -277,17 +277,19 @@ export default function Curriculum() {
 
               <Section>
                 <SectionTitle
-                  backgroundColor="gray.800"
-                  color="gray.300"
-                  lineColor="gray.500"
+                  backgroundColor="#141414"
+                  color="whiteAlpha.900"
+                  lineColor="whiteAlpha.400"
                 >
                   Links
                 </SectionTitle>
 
                 <Link
+                  _hover={{ color: "yellow.200" }}
                   href="mailto:matias_monasterio@outlook.com"
                   display="flex"
                   alignItems="center"
+                  color="whiteAlpha.800"
                   mb={2}
                 >
                   <Box as="span" pr={2}>
@@ -299,9 +301,11 @@ export default function Curriculum() {
                 </Link>
 
                 <Link
+                  _hover={{ color: "yellow.200" }}
                   alignItems="center"
                   display="flex"
                   href="https://github.com/MatiasMonasterio"
+                  color="whiteAlpha.800"
                   isExternal
                   mb={2}
                 >
@@ -314,9 +318,11 @@ export default function Curriculum() {
                 </Link>
 
                 <Link
+                  _hover={{ color: "yellow.200" }}
                   alignItems="center"
                   display="flex"
                   href="https://www.linkedin.com/in/matiasmonasterio/"
+                  color="whiteAlpha.800"
                   isExternal
                 >
                   <Box as="span" pr={2}>
@@ -394,10 +400,10 @@ export default function Curriculum() {
       <Button
         bottom="1em"
         color="gray.100"
-        backgroundColor="gray.800"
-        _hover={{ backgroundColor: "gray.900" }}
-        _active={{ backgroundColor: "gray.700" }}
-        _disabled={{ backgroundColor: "gray.600" }}
+        backgroundColor="blackAlpha.600"
+        _hover={{ backgroundColor: "blackAlpha.800" }}
+        _active={{ backgroundColor: "blackAlpha.800" }}
+        _disabled={{ backgroundColor: "blackAlpha.900" }}
         disabled={loadFile}
         leftIcon={loadFile ? <BiLoaderAlt /> : <BiDownload />}
         onClick={handleDowload}

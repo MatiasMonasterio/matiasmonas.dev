@@ -11,11 +11,11 @@ export const ExperienceRow = ({
   return (
     <Grid templateColumns="100px 1fr" gap={4} mb={6}>
       <GridItem>
-        <Text fontSize="xs" color="gray.400">
+        <Text fontSize="xs" color="gray.500">
           {duraction}
         </Text>
 
-        <Text fontSize="xs" color="gray.400">
+        <Text fontSize="xs" color="gray.500">
           {locale}
         </Text>
       </GridItem>

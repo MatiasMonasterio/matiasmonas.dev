@@ -11,7 +11,7 @@ export const NavLink = ({ href, children }) => {
       <Link
         display="block"
         _hover={{ textDecoration: "none" }}
-        color={router.pathname === href && "gray.600"}
+        color={router.pathname === href && "blackAlpha.600"}
       >
         {children}
       </Link>

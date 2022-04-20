@@ -17,7 +17,7 @@ import {
 } from "@chakra-ui/react";
 
 import { NavLink } from "./NavLink";
-import { Logo } from "components/common/Logo";
+import { Logo } from "components/common";
 
 import { motion } from "framer-motion";
 const MotionBox = motion(Box);
@@ -46,21 +46,15 @@ export const NavbarMobile = () => {
       <Container
         alignItems="center"
         display="flex"
-        maxW="container.md"
+        maxW="container.lg"
         transition="padding 0.2s"
       >
-        {router.pathname !== "/" && (
-          <NavLink href="/">
-            <Logo size={40} color="gray.300" />
-          </NavLink>
-        )}
-
         <Button
           fontSize="2rem"
           variant="link"
           ml="auto"
           position="relative"
-          color={showMenu ? "gray.900" : "gray.300"}
+          color={showMenu ? "blackAlpha.900" : "whiteAlpha.900"}
           px={0}
           zIndex={2}
           onClick={handleShowMenu}
@@ -72,8 +66,8 @@ export const NavbarMobile = () => {
       </Container>
 
       <MotionBox
-        bg="gray.300"
-        color="gray.900"
+        bg="gray.100"
+        color="blackAlpha.900"
         height="100vh"
         left={0}
         position="absolute"
@@ -99,15 +93,15 @@ export const NavbarMobile = () => {
               </MotionItem>
 
               <MotionItem animate={itemAnimate} transition={{ delay: 0.05 }}>
-                <NavLink href="/experience">Experiencia</NavLink>
+                <NavLink href="#experience">Experiencia</NavLink>
               </MotionItem>
 
               <MotionItem animate={itemAnimate} transition={{ delay: 0.1 }}>
-                <NavLink href="/projects">Proyectos</NavLink>
+                <NavLink href="#projects">Proyectos</NavLink>
               </MotionItem>
 
               <MotionItem animate={itemAnimate} transition={{ delay: 0.15 }}>
-                <NavLink href="/contact">Contacto</NavLink>
+                <NavLink href="#contact">Contacto</NavLink>
               </MotionItem>
 
               <MotionItem animate={itemAnimate} transition={{ delay: 0.2 }}>
@@ -116,7 +110,13 @@ export const NavbarMobile = () => {
             </VStack>
           </UnorderedList>
 
-          <Text color="gray.500" textAlign="center" mt={40} mb={10}>
+          <Text
+            color="blackAlpha.500"
+            textAlign="center"
+            mt={40}
+            mb={10}
+            fontWeight="500"
+          >
             Puedes contactarme en{" "}
             <Link href="https://github.com/MatiasMonasterio">Github</Link>,{" "}
             <Link href="https://www.linkedin.com/in/matiasmonasterio/">
@@ -126,7 +126,7 @@ export const NavbarMobile = () => {
           </Text>
 
           <Box mx="auto">
-            <Logo size={40} color="gray.800" />
+            <Logo size={40} color="blackAlpha.800" />
           </Box>
         </Container>
       </MotionBox>

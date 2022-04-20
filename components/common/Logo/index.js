@@ -1,6 +1,6 @@
 import { theme } from "@chakra-ui/react";
 
-export const Logo = ({ size, color = "gray.300" }) => {
+export const Logo = ({ size, color = "whiteAlpha.900" }) => {
   const [type, level] = color.split(".");
   const fillColor = theme.colors[type][level];
 

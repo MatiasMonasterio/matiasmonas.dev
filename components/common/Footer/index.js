@@ -22,15 +22,14 @@ export const Footer = () => {
       as="footer"
       mt="auto"
       py={4}
-      color="gray.300"
+      color="whiteAlpha.400"
       borderTop="1px"
-      borderColor="gray.700"
+      borderColor="whiteAlpha.100"
     >
       <Container
         maxW="container.md"
         display="flex"
         justifyContent="space-between"
-        color="gray.500"
       >
         <Text fontSize="sm" fontStyle="italic">
           Buenos Aires {year}
@@ -38,28 +37,26 @@ export const Footer = () => {
 
         <HStack>
           <Text fontSize="sm" fontStyle="italic">
-            Contactame en
+            Contáctame en
           </Text>
           <Link
-            _hover={{ color: "gray.300" }}
+            _hover={{ color: "yellow.200" }}
             href="https://github.com/MatiasMonasterio"
             isExternal
           >
             <BsGithub />
             <VisuallyHidden>Github Profile</VisuallyHidden>
           </Link>
-
           <Link
-            _hover={{ color: "gray.300" }}
+            _hover={{ color: "yellow.200" }}
             href="https://www.linkedin.com/in/matiasmonasterio/"
             isExternal
           >
             <BsLinkedin />
             <VisuallyHidden>LinkedIn Profile</VisuallyHidden>
           </Link>
-
           <Link
-            _hover={{ color: "gray.300" }}
+            _hover={{ color: "yellow.200" }}
             href="https://twitter.com/MatiasMonas"
             isExternal
           >

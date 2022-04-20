@@ -32,10 +32,9 @@ export const Navbar = ({ scrollLimit }) => {
   return (
     <Box
       as="nav"
-      backgroundColor="gray.800"
       borderBottom="1px"
-      borderColor={hasScrolled ? "gray.700" : "transparent"}
-      color="gray.300"
+      borderColor={hasScrolled ? "whiteAlpha.200" : "transparent"}
+      backdropFilter="blur(5px)"
       position="sticky"
       zIndex={1}
       py={{ base: hasScrolled ? 4 : 6, md: hasScrolled ? 6 : 8 }}
@@ -43,7 +42,11 @@ export const Navbar = ({ scrollLimit }) => {
       transition="border-color 0.2s, padding 0.2s"
       width="100%"
     >
-      {isMobile ? <NavbarMobile /> : <NavbarDesktop />}
+      {isMobile ? (
+        <NavbarMobile hasScrolled={hasScrolled} />
+      ) : (
+        <NavbarDesktop hasScrolled={hasScrolled} />
+      )}
     </Box>
   );
 };

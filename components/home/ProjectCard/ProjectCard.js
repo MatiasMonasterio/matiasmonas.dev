@@ -1,25 +1,23 @@
 import { Box, Heading, Text, Link, HStack } from "@chakra-ui/react";
 import { BiLinkExternal } from "react-icons/bi";
 
-export const ProjectCard = ({
-  title,
-  description,
-  technologies,
-  github,
-  website,
-}) => {
+export default function ProjectCard(props) {
+  const { title, description, technologies, github, website } = props;
+
   return (
     <Box as="article">
       <Box px={0} w="100%" mb={4}>
-        <Heading as="h2" fontSize="lg">
+        <Heading as="h2" fontSize="lg" color="whiteAlpha.800">
           {title}
         </Heading>
 
-        <Text fontStyle="italic" color="gray.500">
+        <Text fontStyle="italic" color="whiteAlpha.500">
           {description}
         </Text>
 
-        <Text fontSize="sm">{technologies.join(", ")}</Text>
+        <Text fontSize="sm" color="whiteAlpha.800">
+          {technologies.join(", ")}
+        </Text>
       </Box>
 
       <HStack gap={2} color="gray.50" fontSize="sm">
@@ -29,8 +27,8 @@ export const ProjectCard = ({
             display="flex"
             gap="0.2rem"
             href={website}
-            color="gray.500"
-            _hover={{ color: "gray.100" }}
+            color="whiteAlpha.500"
+            _hover={{ color: "yellow.200" }}
             isExternal
           >
             Website
@@ -44,8 +42,8 @@ export const ProjectCard = ({
           <Link
             alignItems="center"
             display="flex"
-            color="gray.500"
-            _hover={{ color: "gray.100" }}
+            color="whiteAlpha.500"
+            _hover={{ color: "yellow.200" }}
             gap="0.2rem"
             href={github}
             isExternal
@@ -59,4 +57,4 @@ export const ProjectCard = ({
       </HStack>
     </Box>
   );
-};
+}

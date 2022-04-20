@@ -25,7 +25,7 @@ export const Noise = () => {
       width="200%"
       height="200vh"
       background="transparent url('http://assets.iceable.com/img/noise-transparent.png') repeat 0 0"
-      opacity="0.45"
+      opacity="0.5"
       zIndex="10"
       visibility="visible"
       animation={`${bgAnimation} 0.2s infinite`}

@@ -9,8 +9,8 @@ export const NavLink = ({ href, children }) => {
   return (
     <NextLink href={href} passHref>
       <Link
-        color={router.pathname === href ? "gray.50" : "gray.500"}
-        _hover={{ textDecor: "none", color: "gray.300" }}
+        color={router.pathname === href ? "white" : "whiteAlpha.800"}
+        _hover={{ textDecor: "none", color: "white" }}
       >
         {children}
       </Link>

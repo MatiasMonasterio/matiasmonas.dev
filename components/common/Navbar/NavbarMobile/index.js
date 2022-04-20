@@ -46,7 +46,7 @@ export const NavbarMobile = () => {
       <Container
         alignItems="center"
         display="flex"
-        maxW="container.md"
+        maxW="container.lg"
         transition="padding 0.2s"
       >
         {router.pathname !== "/" && (

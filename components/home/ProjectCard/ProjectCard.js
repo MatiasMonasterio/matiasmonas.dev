@@ -1,4 +1,4 @@
-import { Box, Heading, Text, Link, HStack } from "@chakra-ui/react";
+import { Box, Heading, Text, Link, HStack, Badge } from "@chakra-ui/react";
 import { BiLinkExternal } from "react-icons/bi";
 
 export default function ProjectCard(props) {
@@ -15,9 +15,23 @@ export default function ProjectCard(props) {
           {description}
         </Text>
 
-        <Text fontSize="sm" color="whiteAlpha.800">
-          {technologies.join(", ")}
-        </Text>
+        {technologies.map((technology) => (
+          <Badge
+            key={technology}
+            mr={2}
+            textTransform="initial"
+            bg="rgba(250, 240, 137, 0.1)"
+            fontSize="xs"
+            color="yellow.50"
+            cursor="pointer"
+            rounded="lg"
+            px={2}
+            transition="background .05s, color .05s"
+            _hover={{ bg: "yellow.200", color: "blackAlpha.900" }}
+          >
+            {technology}
+          </Badge>
+        ))}
       </Box>
 
       <HStack gap={2} color="gray.50" fontSize="sm">

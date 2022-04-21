@@ -123,7 +123,7 @@ export default function Home() {
                 mx="auto"
                 height={{ base: 150, md: 120 }}
                 loading="lazy"
-                src="https://media-exp1.licdn.com/dms/image/C4D03AQGYbo7rSg6rtA/profile-displayphoto-shrink_800_800/0/1607717818872?e=1650499200&v=beta&t=swhnf2ZqCjqTNQmTFBV-xZDco26ebE3KvTB_UGeLPMg"
+                src="static/images/profile.jpg"
                 minW={{ base: 150, md: 120 }}
               />
             </Box>

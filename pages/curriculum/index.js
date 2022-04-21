@@ -35,8 +35,7 @@ const profile = {
   position: "Frontend Developer",
   resume:
     "Soy estudiante de la carrera de Ingeniería en Informática, con gran afán hacia las tecnologías web e interés de ampliar mis conocimientos para crecer a nivel personal como profesional.",
-  image:
-    "https://media-exp1.licdn.com/dms/image/C4D03AQGYbo7rSg6rtA/profile-displayphoto-shrink_800_800/0/1607717818872?e=1650499200&v=beta&t=swhnf2ZqCjqTNQmTFBV-xZDco26ebE3KvTB_UGeLPMg",
+  image: "static/images/profile.jpg",
   data: [
     "01 Diciembre de 1995",
     "Buenos Aires, Argentina",

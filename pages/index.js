@@ -43,16 +43,12 @@ const projects = [
     website: "https://lunagolfstore.herokuapp.com/",
   },
   {
-    title: "AlquilerApp",
-    description: "Proyecto fin de curso Fullstack .NET ComunidadIT",
-    technologies: [
-      "C#",
-      "ASP.NET Core MVC",
-      "Entity Framework",
-      "SQL Server",
-      "Bootstrap",
-    ],
-    github: "https://github.com/MatiasMonasterio/Lunagolfstore-webmaster2020",
+    title: "Beatport Releases",
+    description:
+      "Proyecto personal para gestionar lanzamientos de beatport para dj sets",
+    technologies: ["React", "Typescript", "Chakra UI", "Vite"],
+    github: "https://github.com/MatiasMonasterio/beatport-releases",
+    website: "https://beatport-releases.vercel.app/",
   },
 ];
 

@@ -10,7 +10,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint --fix",
-    "commit": "git cz"
+    "commit": "git cz",
+    "prisma:studio": "prisma studio",
+    "prisma:generate": "prisma generate"
   },
   "dependencies": {
     "@chakra-ui/react": "1.8.3",

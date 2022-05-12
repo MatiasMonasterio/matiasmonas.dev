@@ -2,7 +2,7 @@ import { Box, Heading, Text, Link, HStack, Badge } from "@chakra-ui/react";
 import { BiLinkExternal } from "react-icons/bi";
 
 export default function ProjectCard(props) {
-  const { title, description, technologies, github, website } = props;
+  const { title, description, topics, repository, website } = props;
 
   return (
     <Box as="article">
@@ -15,9 +15,9 @@ export default function ProjectCard(props) {
           {description}
         </Text>
 
-        {technologies.map((technology) => (
+        {topics.map((topic) => (
           <Badge
-            key={technology}
+            key={topic}
             mr={2}
             textTransform="initial"
             bg="rgba(250, 240, 137, 0.1)"
@@ -29,7 +29,7 @@ export default function ProjectCard(props) {
             transition="background .05s, color .05s"
             _hover={{ bg: "yellow.200", color: "blackAlpha.900" }}
           >
-            {technology}
+            {topic}
           </Badge>
         ))}
       </Box>
@@ -52,14 +52,14 @@ export default function ProjectCard(props) {
           </Link>
         )}
 
-        {github && (
+        {repository && (
           <Link
             alignItems="center"
             display="flex"
             color="whiteAlpha.500"
             _hover={{ color: "yellow.200" }}
             gap="0.2rem"
-            href={github}
+            href={repository}
             isExternal
           >
             GitHub

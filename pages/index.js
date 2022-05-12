@@ -1,6 +1,5 @@
 import { Head } from "components/common";
 import { BsLinkedin, BsGithub, BsTwitter } from "react-icons/bs";
-import { BiLinkExternal } from "react-icons/bi";
 import {
   Box,
   Center,
@@ -16,48 +15,15 @@ import {
   VisuallyHidden,
 } from "@chakra-ui/react";
 
-import { ProjectCard, ContactForm } from "components/home";
+import { ProjectCard, ContactForm, ExperienceItem } from "components/home";
+import { getProfile, getExperiencies, getMainProjects } from "services";
 
-const projects = [
-  {
-    title: "Spotify Web Player Clone",
-    description: "Clone con conexion a API de spotify",
-    technologies: ["Angular", "Bootstrap", "SCSS", "BEM"],
-    github: "https://github.com/MatiasMonasterio/SpotifyWebPlayer",
-    website: "https://spotify-web-player-clone.netlify.app/#/",
-  },
-  {
-    title: "Luna Golf Store",
-    description: "Proyecto fin de curso WebMaster UTN",
-    technologies: [
-      "NodeJS",
-      "Express",
-      "Handlebars",
-      "SCSS",
-      "PostCSS",
-      "Bootstrap",
-      "MySql",
-      "Sequelize",
-    ],
-    github: "https://github.com/MatiasMonasterio/Lunagolfstore-webmaster2020",
-    website: "https://lunagolfstore.herokuapp.com/",
-  },
-  {
-    title: "Beatport Releases",
-    description:
-      "Proyecto personal para gestionar lanzamientos de beatport para dj sets",
-    technologies: ["React", "Typescript", "Chakra UI", "Vite"],
-    github: "https://github.com/MatiasMonasterio/beatport-releases",
-    website: "https://beatport-releases.vercel.app/",
-  },
-];
-
-export default function Home() {
+export default function Home({ profile, experiences, projects }) {
   return (
     <>
       <Head
-        title="Matias M. Monasterio | Frontend Developer"
-        description="Frontend Developer con conocimientos en Backend y afán por la tecnología"
+        title={`${profile.name} | ${profile.position}`}
+        description={profile.excerpt}
       />
 
       <Box color="whiteAlpha.700" my={12}>
@@ -71,10 +37,10 @@ export default function Home() {
             <Box mb={10} d="flex" flexDir="column" justifyContent="flex-end">
               <Box mb={4}>
                 <Heading as="h1" size="lg" color="whiteAlpha.900">
-                  Matias M. Monasterio
+                  {profile.name}
                 </Heading>
                 <Text fontSize="xl" fontStyle="italic">
-                  Frontend Developer
+                  {profile.position}
                 </Text>
               </Box>
 
@@ -113,7 +79,7 @@ export default function Home() {
 
             <Box>
               <Image
-                alt="Matías M. Monasterio"
+                alt={profile.name}
                 borderRadius="full"
                 boxSize={{ base: 150, md: 120 }}
                 mx="auto"
@@ -140,23 +106,11 @@ export default function Home() {
               Sobre Mi
             </Heading>
 
-            <Text mb={6}>
-              Desarrollo productos digitales mediante uso de las últimas
-              tecnologías, considerando cuál es la que mejor se adapte a la
-              solución. Interesado particularmente en tecnologías de frontend,
-              pero también llego a entrometerme en backend si es necesario.
-            </Text>
-
-            <Text mb={6}>
-              Actualmente trabajando para España como Fullstack Developer en
-              Triditive y estudiando la carrera de Ingeniería Informática en la
-              Universidad Nacional de la Matanza.
-            </Text>
-
-            <Text mb={6}>
-              Persigo compartir conocimientos y ayudar a todos aquellos que
-              estén dispuestos a aprender.
-            </Text>
+            {profile.description.map((descriptionItem) => (
+              <Text mb={6} key={descriptionItem}>
+                {descriptionItem}
+              </Text>
+            ))}
           </Box>
 
           <Box id="experience" as="section">
@@ -173,84 +127,9 @@ export default function Home() {
             </Heading>
 
             <VStack spacing={6}>
-              <Box>
-                <Box mb={2}>
-                  <Heading as="h3" size="sm" display="inline-block">
-                    <Link
-                      alignItems="end"
-                      display="flex"
-                      href="https://www.linkedin.com/company/triditive/"
-                      isExternal
-                      gap="0.2rem"
-                      color="whiteAlpha.800"
-                    >
-                      Triditive S.L
-                      <Box fontSize="sm">
-                        <BiLinkExternal />
-                      </Box>
-                    </Link>
-                  </Heading>
-                  <Heading
-                    as="h4"
-                    color="whiteAlpha.500"
-                    fontStyle="italic"
-                    fontWeight="normal"
-                    size="sm"
-                  >
-                    Fullstack Developer
-                  </Heading>
-                </Box>
-
-                <Text mb={1}>
-                  Participación en planificación e investigación de nuevos
-                  proyectos, desarrollo de productos para gestión de usuarios,
-                  resolución de incidentes relacionados a los sistemas actuales.
-                </Text>
-
-                <Text fontSize="xs" color="whiteAlpha.500">
-                  Febrero 2021 — Actualidad
-                </Text>
-              </Box>
-
-              <Box>
-                <Box mb={2}>
-                  <Heading as="h3" size="sm" display="inline-block">
-                    <Link
-                      alignItems="end"
-                      display="flex"
-                      href="https://www.linkedin.com/company/atento/"
-                      isExternal
-                      gap="0.2rem"
-                      color="whiteAlpha.800"
-                    >
-                      Atento S.A
-                      <Box fontSize="sm">
-                        <BiLinkExternal />
-                      </Box>
-                    </Link>
-                  </Heading>
-
-                  <Heading
-                    as="h4"
-                    color="whiteAlpha.500"
-                    fontStyle="italic"
-                    fontWeight="normal"
-                    size="sm"
-                  >
-                    Representante Soporte Técnico
-                  </Heading>
-                </Box>
-
-                <Text mb={1}>
-                  Atención telefónica y remota a usuarios, brindar asesoramiento
-                  sobre consultas realizadas por el usuario, resolver incidentes
-                  técnicos (hardware y software).
-                </Text>
-
-                <Text fontSize="xs" color="whiteAlpha.500">
-                  Febrero 2016 — Febrero 2019
-                </Text>
-              </Box>
+              {experiences.map((experience) => (
+                <ExperienceItem {...experience} key={experience.id} />
+              ))}
             </VStack>
           </Box>
 
@@ -301,3 +180,17 @@ export default function Home() {
     </>
   );
 }
+
+export const getServerSideProps = async () => {
+  const profile = await getProfile();
+  const experiences = await getExperiencies();
+  const projects = await getMainProjects();
+
+  return {
+    props: {
+      profile,
+      experiences,
+      projects,
+    },
+  };
+};

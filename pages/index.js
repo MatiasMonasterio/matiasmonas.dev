@@ -17,6 +17,7 @@ import {
 
 import { ProjectCard, ContactForm, ExperienceItem } from "components/home";
 import { getProfile, getExperiencies, getMainProjects } from "services";
+import { github, linkedin, twitter } from "constants";
 
 export default function Home({ profile, experiences, projects }) {
   return (
@@ -47,7 +48,7 @@ export default function Home({ profile, experiences, projects }) {
               <HStack spacing={4} color="whiteAlpha.400">
                 <Link
                   fontSize="xl"
-                  href="https://github.com/MatiasMonasterio"
+                  href={github}
                   isExternal
                   _hover={{ color: "yellow.200" }}
                 >
@@ -57,7 +58,7 @@ export default function Home({ profile, experiences, projects }) {
 
                 <Link
                   fontSize="xl"
-                  href="https://www.linkedin.com/in/matiasmonasterio/"
+                  href={linkedin}
                   isExternal
                   _hover={{ color: "yellow.200" }}
                 >
@@ -67,7 +68,7 @@ export default function Home({ profile, experiences, projects }) {
 
                 <Link
                   fontSize="xl"
-                  href="https://twitter.com/MatiasMonas"
+                  href={twitter}
                   isExternal
                   _hover={{ color: "yellow.200" }}
                 >

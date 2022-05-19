@@ -29,9 +29,9 @@ export default function Navbar({ scrollLimit }) {
       backdropFilter="blur(5px)"
       position="sticky"
       zIndex={1}
-      py={{ base: hasScrolled ? 4 : 6, md: hasScrolled ? 6 : 8 }}
+      py={{ base: 4, md: 6 }}
       top={0}
-      transition="border-color 0.2s, padding 0.2s"
+      transition="border-color 0.2s"
       width="100%"
     >
       <Box display={{ base: "none", sm: "block" }}>

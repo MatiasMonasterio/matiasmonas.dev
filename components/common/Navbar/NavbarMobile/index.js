@@ -95,23 +95,23 @@ export const NavbarMobile = () => {
             gap={6}
             alignItems="center"
           >
-            <MotionItem animate={itemAnimate} transition={{ delay: 0 }}>
+            <MotionItem animate={itemAnimate} transition={{ delay: 0.2 }}>
               <NavLink href="/">Sobre Mi</NavLink>
             </MotionItem>
 
-            <MotionItem animate={itemAnimate} transition={{ delay: 0.05 }}>
+            <MotionItem animate={itemAnimate} transition={{ delay: 0.25 }}>
               <NavLink href="#experience">Experiencia</NavLink>
             </MotionItem>
 
-            <MotionItem animate={itemAnimate} transition={{ delay: 0.1 }}>
+            <MotionItem animate={itemAnimate} transition={{ delay: 0.3 }}>
               <NavLink href="#projects">Proyectos</NavLink>
             </MotionItem>
 
-            <MotionItem animate={itemAnimate} transition={{ delay: 0.15 }}>
+            <MotionItem animate={itemAnimate} transition={{ delay: 0.35 }}>
               <NavLink href="#contact">Contacto</NavLink>
             </MotionItem>
 
-            <MotionItem animate={itemAnimate} transition={{ delay: 0.2 }}>
+            <MotionItem animate={itemAnimate} transition={{ delay: 0.4 }}>
               <NavLink href="/curriculum">CV</NavLink>
             </MotionItem>
           </UnorderedList>

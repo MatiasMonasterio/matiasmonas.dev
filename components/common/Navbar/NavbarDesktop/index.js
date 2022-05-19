@@ -1,14 +1,9 @@
-import { useRouter } from "next/router";
-import { useState, useEffect } from "react";
-
 import {
   Container,
-  HStack,
   UnorderedList,
   ListItem,
   Box,
   VisuallyHidden,
-  Button,
 } from "@chakra-ui/react";
 import { Logo } from "components/common";
 import { NavLink } from "./NavLink";

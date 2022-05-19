@@ -1,11 +1,16 @@
 {
   "env": {
-    "browser": false,
+    "browser": true,
     "es2021": true,
     "node": true
   },
   "plugins": ["prettier"],
-  "extends": ["plugin:prettier/recommended", "next", "next/core-web-vitals"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:prettier/recommended",
+    "next",
+    "next/core-web-vitals"
+  ],
   "rules": {
     "prettier/prettier": "warn"
   }

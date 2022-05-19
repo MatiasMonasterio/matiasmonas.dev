@@ -1,19 +1,11 @@
-import dynamic from "next/dynamic";
 import { useState, useEffect, useCallback } from "react";
 
-import { Box, useMediaQuery } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 
-const NavbarMobile = dynamic(() =>
-  import("./NavbarMobile").then(({ NavbarMobile }) => NavbarMobile)
-);
-
-const NavbarDesktop = dynamic(() =>
-  import("./NavbarDesktop").then(({ NavbarDesktop }) => NavbarDesktop)
-);
+import { NavbarMobile } from "./NavbarMobile";
+import { NavbarDesktop } from "./NavbarDesktop";
 
 export default function Navbar({ scrollLimit }) {
-  // default breakpoint md https://chakra-ui.com/docs/theming/theme#breakpoints
-  const [isMobile] = useMediaQuery("(max-width: 48em)");
   const [hasScrolled, setHasScrolled] = useState(false);
 
   const handleScroll = useCallback(() => {
@@ -42,11 +34,13 @@ export default function Navbar({ scrollLimit }) {
       transition="border-color 0.2s, padding 0.2s"
       width="100%"
     >
-      {isMobile ? (
-        <NavbarMobile hasScrolled={hasScrolled} />
-      ) : (
+      <Box display={{ base: "none", sm: "block" }}>
         <NavbarDesktop hasScrolled={hasScrolled} />
-      )}
+      </Box>
+
+      <Box display={{ base: "block", sm: "none" }}>
+        <NavbarMobile hasScrolled={hasScrolled} />
+      </Box>
     </Box>
   );
 }

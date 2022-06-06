@@ -93,6 +93,7 @@ export default function Home({
                 loading="lazy"
                 src="static/images/profile.jpg"
                 minW={{ base: 150, md: 120 }}
+                pointerEvents="none"
               />
             </Box>
           </Flex>
@@ -187,7 +188,7 @@ export default function Home({
   );
 }
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
   const profile = await getProfile();
   const experiences = await getExperiencies();
   const projects = await getMainProjects();

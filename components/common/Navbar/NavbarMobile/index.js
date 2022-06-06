@@ -8,7 +8,6 @@ import {
   Box,
   Container,
   Link,
-  VStack,
   UnorderedList,
   ListItem,
   Button,
@@ -86,28 +85,34 @@ export const NavbarMobile = () => {
           flexDirection="column"
           justifyContent="center"
         >
-          <UnorderedList styleType="none">
-            <VStack spacing={4} fontSize="1.6rem" fontWeight="bold">
-              <MotionItem animate={itemAnimate} transition={{ delay: 0 }}>
-                <NavLink href="/">Sobre Mi</NavLink>
-              </MotionItem>
+          <UnorderedList
+            styleType="none"
+            fontSize="1.6rem"
+            fontWeight="bold"
+            display="flex"
+            flexDirection="column"
+            gap={6}
+            alignItems="center"
+          >
+            <MotionItem animate={itemAnimate} transition={{ delay: 0.2 }}>
+              <NavLink href="/">Sobre Mi</NavLink>
+            </MotionItem>
 
-              <MotionItem animate={itemAnimate} transition={{ delay: 0.05 }}>
-                <NavLink href="#experience">Experiencia</NavLink>
-              </MotionItem>
+            <MotionItem animate={itemAnimate} transition={{ delay: 0.25 }}>
+              <NavLink href="#experience">Experiencia</NavLink>
+            </MotionItem>
 
-              <MotionItem animate={itemAnimate} transition={{ delay: 0.1 }}>
-                <NavLink href="#projects">Proyectos</NavLink>
-              </MotionItem>
+            <MotionItem animate={itemAnimate} transition={{ delay: 0.3 }}>
+              <NavLink href="#projects">Proyectos</NavLink>
+            </MotionItem>
 
-              <MotionItem animate={itemAnimate} transition={{ delay: 0.15 }}>
-                <NavLink href="#contact">Contacto</NavLink>
-              </MotionItem>
+            <MotionItem animate={itemAnimate} transition={{ delay: 0.35 }}>
+              <NavLink href="#contact">Contacto</NavLink>
+            </MotionItem>
 
-              <MotionItem animate={itemAnimate} transition={{ delay: 0.2 }}>
-                <NavLink href="/curriculum">CV</NavLink>
-              </MotionItem>
-            </VStack>
+            <MotionItem animate={itemAnimate} transition={{ delay: 0.4 }}>
+              <NavLink href="/curriculum">CV</NavLink>
+            </MotionItem>
           </UnorderedList>
 
           <Text

@@ -11,20 +11,15 @@ import {
   Flex,
   Image,
   Grid,
-  GridItem,
   VisuallyHidden,
 } from "@chakra-ui/react";
 
+import { BoxMotion } from "components/common";
 import { ProjectCard, ContactForm, ExperienceItem } from "components/home";
 import { getProfile, getExperiencies, getMainProjects } from "services";
-import * as socialNetworks from "constants";
+import { github, linkedin, twitter } from "constants/social-networks";
 
-export default function Home({
-  profile,
-  experiences,
-  projects,
-  socialNetworks,
-}) {
+export default function Home({ profile, experiences, projects, networks }) {
   return (
     <>
       <Head
@@ -53,7 +48,7 @@ export default function Home({
               <HStack spacing={4} color="whiteAlpha.400">
                 <Link
                   fontSize="xl"
-                  href={socialNetworks.github}
+                  href={networks.github}
                   isExternal
                   _hover={{ color: "yellow.200" }}
                 >
@@ -63,7 +58,7 @@ export default function Home({
 
                 <Link
                   fontSize="xl"
-                  href={socialNetworks.linkedin}
+                  href={networks.linkedin}
                   isExternal
                   _hover={{ color: "yellow.200" }}
                 >
@@ -73,7 +68,7 @@ export default function Home({
 
                 <Link
                   fontSize="xl"
-                  href={socialNetworks.twitter}
+                  href={networks.twitter}
                   isExternal
                   _hover={{ color: "yellow.200" }}
                 >
@@ -114,9 +109,9 @@ export default function Home({
             </Heading>
 
             {profile.description.map((descriptionItem) => (
-              <Text mb={6} key={descriptionItem}>
-                {descriptionItem}
-              </Text>
+              <BoxMotion key={descriptionItem}>
+                <Text mb={6}>{descriptionItem}</Text>
+              </BoxMotion>
             ))}
           </Box>
 
@@ -135,12 +130,14 @@ export default function Home({
 
             <VStack spacing={6}>
               {experiences.map((experience) => (
-                <ExperienceItem {...experience} key={experience.id} />
+                <BoxMotion animation="fadeInUp" key={experience.id}>
+                  <ExperienceItem {...experience} />
+                </BoxMotion>
               ))}
             </VStack>
           </Box>
 
-          <Box id="projects" as="section">
+          <Box id="projects" as="section" w="100%">
             <Heading
               as="h2"
               size="md"
@@ -159,9 +156,9 @@ export default function Home({
               columnGap={6}
             >
               {projects.map((project) => (
-                <GridItem key={project.title}>
+                <BoxMotion animation="fadeInUp" key={project.title}>
                   <ProjectCard {...project} />
-                </GridItem>
+                </BoxMotion>
               ))}
             </Grid>
           </Box>
@@ -180,7 +177,9 @@ export default function Home({
               Contacto
             </Heading>
 
-            <ContactForm />
+            <BoxMotion animation="fadeInUp">
+              <ContactForm />
+            </BoxMotion>
           </Box>
         </VStack>
       </Box>
@@ -193,12 +192,18 @@ export const getStaticProps = async () => {
   const experiences = await getExperiencies();
   const projects = await getMainProjects();
 
+  console.log(github);
+
   return {
     props: {
       profile,
       experiences,
       projects,
-      socialNetworks,
+      networks: {
+        github,
+        linkedin,
+        twitter,
+      },
     },
   };
 };

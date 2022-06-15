@@ -17,12 +17,17 @@ import {
   Stack,
   Text,
   Textarea,
+  usePrefersReducedMotion,
 } from "@chakra-ui/react";
-import { RiMailSendLine, RiErrorWarningLine } from "react-icons/ri";
+import { RiErrorWarningLine } from "react-icons/ri";
+import { BiMailSend } from "react-icons/bi";
+import confetti from "canvas-confetti";
 
 import { sendContactForm } from "services/contact";
 
 export default function ContactForm() {
+  const reduceMotion = usePrefersReducedMotion();
+
   const [formState, setFormState] = useState({
     loading: false,
     showModal: false,
@@ -73,8 +78,16 @@ export default function ContactForm() {
         title: "En hora buena!",
         message: "Resivirá un correo de confirmacion de envio",
         success: true,
-        icon: <RiMailSendLine />,
+        icon: <BiMailSend />,
       });
+
+      !reduceMotion &&
+        confetti({
+          particleCount: 100,
+          spread: 70,
+          origin: { y: 0.6 },
+          zIndex: 1401,
+        });
 
       formik.resetForm();
     }
@@ -104,6 +117,7 @@ export default function ContactForm() {
             value={formik.values.name}
             _hover={{ borderColor: "yellow.200" }}
             _focus={{ borderColor: "yellow.200" }}
+            _placeholder={{ color: "gray.300" }}
           />
 
           <FormErrorMessage>{formik.errors.name}</FormErrorMessage>
@@ -119,6 +133,7 @@ export default function ContactForm() {
             value={formik.values.email}
             _hover={{ borderColor: "yellow.200" }}
             _focus={{ borderColor: "yellow.200" }}
+            _placeholder={{ color: "gray.300" }}
           />
 
           <FormErrorMessage>{formik.errors.email}</FormErrorMessage>
@@ -134,6 +149,7 @@ export default function ContactForm() {
             value={formik.values.message}
             _hover={{ borderColor: "yellow.200" }}
             _focus={{ borderColor: "yellow.200" }}
+            _placeholder={{ color: "gray.300" }}
           />
 
           <FormErrorMessage>{formik.errors.message}</FormErrorMessage>

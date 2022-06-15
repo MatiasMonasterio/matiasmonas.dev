@@ -20,6 +20,7 @@
     "@emotion/react": "11",
     "@emotion/styled": "11",
     "@prisma/client": "3.14.0",
+    "canvas-confetti": "1.5.1",
     "formik": "2.2.9",
     "framer-motion": "6",
     "jspdf": "2.5.1",

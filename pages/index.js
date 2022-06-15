@@ -135,7 +135,7 @@ export default function Home({ profile, experiences, projects, networks }) {
             </VStack>
           </Box>
 
-          <Box id="projects" as="section">
+          <Box id="projects" as="section" w="100%">
             <Heading
               as="h2"
               size="md"

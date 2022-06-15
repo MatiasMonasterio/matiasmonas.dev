@@ -18,7 +18,9 @@ import {
   Text,
   Textarea,
 } from "@chakra-ui/react";
-import { RiMailSendLine, RiErrorWarningLine } from "react-icons/ri";
+import { RiErrorWarningLine } from "react-icons/ri";
+import { BiMailSend } from "react-icons/bi";
+import confetti from "canvas-confetti";
 
 import { sendContactForm } from "services/contact";
 
@@ -73,7 +75,14 @@ export default function ContactForm() {
         title: "En hora buena!",
         message: "Resivirá un correo de confirmacion de envio",
         success: true,
-        icon: <RiMailSendLine />,
+        icon: <BiMailSend />,
+      });
+
+      confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 },
+        zIndex: 1401,
       });
 
       formik.resetForm();

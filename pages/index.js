@@ -11,10 +11,10 @@ import {
   Flex,
   Image,
   Grid,
-  GridItem,
   VisuallyHidden,
 } from "@chakra-ui/react";
 
+import { BoxMotion } from "components/common";
 import { ProjectCard, ContactForm, ExperienceItem } from "components/home";
 import { getProfile, getExperiencies, getMainProjects } from "services";
 import { github, linkedin, twitter } from "constants/social-networks";
@@ -109,9 +109,9 @@ export default function Home({ profile, experiences, projects, networks }) {
             </Heading>
 
             {profile.description.map((descriptionItem) => (
-              <Text mb={6} key={descriptionItem}>
-                {descriptionItem}
-              </Text>
+              <BoxMotion key={descriptionItem}>
+                <Text mb={6}>{descriptionItem}</Text>
+              </BoxMotion>
             ))}
           </Box>
 
@@ -130,7 +130,9 @@ export default function Home({ profile, experiences, projects, networks }) {
 
             <VStack spacing={6}>
               {experiences.map((experience) => (
-                <ExperienceItem {...experience} key={experience.id} />
+                <BoxMotion animation="fadeInUp" key={experience.id}>
+                  <ExperienceItem {...experience} />
+                </BoxMotion>
               ))}
             </VStack>
           </Box>
@@ -154,9 +156,9 @@ export default function Home({ profile, experiences, projects, networks }) {
               columnGap={6}
             >
               {projects.map((project) => (
-                <GridItem key={project.title}>
+                <BoxMotion animation="fadeInUp" key={project.title}>
                   <ProjectCard {...project} />
-                </GridItem>
+                </BoxMotion>
               ))}
             </Grid>
           </Box>
@@ -175,7 +177,9 @@ export default function Home({ profile, experiences, projects, networks }) {
               Contacto
             </Heading>
 
-            <ContactForm />
+            <BoxMotion animation="fadeInUp">
+              <ContactForm />
+            </BoxMotion>
           </Box>
         </VStack>
       </Box>

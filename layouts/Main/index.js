@@ -1,5 +1,4 @@
 // imported with common to ssr
-const { motion } = require("framer-motion");
 import dynamic from "next/dynamic";
 
 import { Box, usePrefersReducedMotion, Container } from "@chakra-ui/react";
@@ -10,7 +9,6 @@ const Noise = dynamic(() =>
 );
 
 export const Main = ({ children }) => {
-  const BoxMotion = motion(Box);
   const reduceMotion = usePrefersReducedMotion();
 
   return (
@@ -19,9 +17,9 @@ export const Main = ({ children }) => {
 
       <Navbar scrollLimit={80} />
 
-      <BoxMotion minH="100%" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+      <Box minH="100%" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
         <Container maxW="container.md">{children}</Container>
-      </BoxMotion>
+      </Box>
 
       <Footer />
     </Box>

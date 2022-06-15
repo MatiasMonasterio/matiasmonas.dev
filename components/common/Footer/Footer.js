@@ -9,6 +9,7 @@ import {
   VisuallyHidden,
 } from "@chakra-ui/react";
 import { BsLinkedin, BsGithub, BsTwitter } from "react-icons/bs";
+import { github, linkedin, twitter } from "constants/social-networks";
 
 export default function Footer() {
   const [year, setYear] = useState(null);
@@ -39,27 +40,15 @@ export default function Footer() {
           <Text fontSize="sm" fontStyle="italic">
             Contáctame en
           </Text>
-          <Link
-            _hover={{ color: "yellow.200" }}
-            href="https://github.com/MatiasMonasterio"
-            isExternal
-          >
+          <Link _hover={{ color: "yellow.200" }} href={github} isExternal>
             <BsGithub />
             <VisuallyHidden>Github Profile</VisuallyHidden>
           </Link>
-          <Link
-            _hover={{ color: "yellow.200" }}
-            href="https://www.linkedin.com/in/matiasmonasterio/"
-            isExternal
-          >
+          <Link _hover={{ color: "yellow.200" }} href={linkedin} isExternal>
             <BsLinkedin />
             <VisuallyHidden>LinkedIn Profile</VisuallyHidden>
           </Link>
-          <Link
-            _hover={{ color: "yellow.200" }}
-            href="https://twitter.com/MatiasMonas"
-            isExternal
-          >
+          <Link _hover={{ color: "yellow.200" }} href={twitter} isExternal>
             <BsTwitter />
             <VisuallyHidden>Twitter Profile</VisuallyHidden>
           </Link>

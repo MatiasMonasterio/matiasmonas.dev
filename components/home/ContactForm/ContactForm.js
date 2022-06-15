@@ -104,6 +104,7 @@ export default function ContactForm() {
             value={formik.values.name}
             _hover={{ borderColor: "yellow.200" }}
             _focus={{ borderColor: "yellow.200" }}
+            _placeholder={{ color: "gray.300" }}
           />
 
           <FormErrorMessage>{formik.errors.name}</FormErrorMessage>
@@ -119,6 +120,7 @@ export default function ContactForm() {
             value={formik.values.email}
             _hover={{ borderColor: "yellow.200" }}
             _focus={{ borderColor: "yellow.200" }}
+            _placeholder={{ color: "gray.300" }}
           />
 
           <FormErrorMessage>{formik.errors.email}</FormErrorMessage>
@@ -134,6 +136,7 @@ export default function ContactForm() {
             value={formik.values.message}
             _hover={{ borderColor: "yellow.200" }}
             _focus={{ borderColor: "yellow.200" }}
+            _placeholder={{ color: "gray.300" }}
           />
 
           <FormErrorMessage>{formik.errors.message}</FormErrorMessage>

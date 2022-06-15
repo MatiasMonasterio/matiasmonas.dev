@@ -17,14 +17,9 @@ import {
 
 import { ProjectCard, ContactForm, ExperienceItem } from "components/home";
 import { getProfile, getExperiencies, getMainProjects } from "services";
-import * as socialNetworks from "constants";
+import { github, linkedin, twitter } from "constants/social-networks";
 
-export default function Home({
-  profile,
-  experiences,
-  projects,
-  socialNetworks,
-}) {
+export default function Home({ profile, experiences, projects, networks }) {
   return (
     <>
       <Head
@@ -53,7 +48,7 @@ export default function Home({
               <HStack spacing={4} color="whiteAlpha.400">
                 <Link
                   fontSize="xl"
-                  href={socialNetworks.github}
+                  href={networks.github}
                   isExternal
                   _hover={{ color: "yellow.200" }}
                 >
@@ -63,7 +58,7 @@ export default function Home({
 
                 <Link
                   fontSize="xl"
-                  href={socialNetworks.linkedin}
+                  href={networks.linkedin}
                   isExternal
                   _hover={{ color: "yellow.200" }}
                 >
@@ -73,7 +68,7 @@ export default function Home({
 
                 <Link
                   fontSize="xl"
-                  href={socialNetworks.twitter}
+                  href={networks.twitter}
                   isExternal
                   _hover={{ color: "yellow.200" }}
                 >
@@ -193,12 +188,18 @@ export const getStaticProps = async () => {
   const experiences = await getExperiencies();
   const projects = await getMainProjects();
 
+  console.log(github);
+
   return {
     props: {
       profile,
       experiences,
       projects,
-      socialNetworks,
+      networks: {
+        github,
+        linkedin,
+        twitter,
+      },
     },
   };
 };

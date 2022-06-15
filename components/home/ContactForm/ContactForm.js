@@ -17,6 +17,7 @@ import {
   Stack,
   Text,
   Textarea,
+  usePrefersReducedMotion,
 } from "@chakra-ui/react";
 import { RiErrorWarningLine } from "react-icons/ri";
 import { BiMailSend } from "react-icons/bi";
@@ -25,6 +26,8 @@ import confetti from "canvas-confetti";
 import { sendContactForm } from "services/contact";
 
 export default function ContactForm() {
+  const reduceMotion = usePrefersReducedMotion();
+
   const [formState, setFormState] = useState({
     loading: false,
     showModal: false,
@@ -78,12 +81,13 @@ export default function ContactForm() {
         icon: <BiMailSend />,
       });
 
-      confetti({
-        particleCount: 100,
-        spread: 70,
-        origin: { y: 0.6 },
-        zIndex: 1401,
-      });
+      !reduceMotion &&
+        confetti({
+          particleCount: 100,
+          spread: 70,
+          origin: { y: 0.6 },
+          zIndex: 1401,
+        });
 
       formik.resetForm();
     }

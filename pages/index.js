@@ -109,7 +109,7 @@ export default function Home({ profile, experiences, projects, networks }) {
             </Heading>
 
             {profile.description.map((descriptionItem) => (
-              <BoxMotion key={descriptionItem}>
+              <BoxMotion animation="fadeInUp" key={descriptionItem}>
                 <Text mb={6}>{descriptionItem}</Text>
               </BoxMotion>
             ))}

@@ -1,7 +1,5 @@
-import { useEffect } from "react";
 import { Box } from "@chakra-ui/react";
 import { motion, useAnimation } from "framer-motion";
-import { useInView } from "react-intersection-observer";
 
 const BoxFramerMotion = motion(Box);
 
@@ -21,20 +19,16 @@ export default function BoxMotion({
   animation = "fadeIn",
   ...chakraProps
 }) {
-  const control = useAnimation();
-  const [ref, inView] = useInView();
-
-  useEffect(() => {
-    inView ? control.start("visible") : control.start("hidden");
-  }, [control, inView]);
+  const animate = useAnimation();
 
   return (
     <BoxFramerMotion
       {...chakraProps}
       variants={animations[animation]}
-      initial="hidden"
-      animate={control}
-      ref={ref}
+      animate={animate}
+      initial="visible"
+      onViewportLeave={() => animate.start("hidden")}
+      onViewportEnter={() => animate.start("visible")}
     >
       {children}
     </BoxFramerMotion>

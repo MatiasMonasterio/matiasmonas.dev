@@ -4,6 +4,8 @@ import { ChakraProvider } from "@chakra-ui/react";
 import { Main } from "layouts/Main";
 import { Doc } from "layouts/Doc";
 
+import theme from "theme";
+
 const layoutComponents = {
   main: Main,
   doc: Doc,
@@ -18,7 +20,7 @@ export const AppLayout = (props) => {
   const Layout = layoutComponents[props.children.type.layout || "main"];
 
   return (
-    <ChakraProvider>
+    <ChakraProvider theme={theme}>
       <Layout {...props}>{props.children}</Layout>
     </ChakraProvider>
   );

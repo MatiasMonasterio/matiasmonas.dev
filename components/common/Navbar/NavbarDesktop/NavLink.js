@@ -9,6 +9,7 @@ export const NavLink = ({ href, children }) => {
   return (
     <NextLink href={href} passHref>
       <Link
+        display="inline-block"
         color={router.pathname === href ? "white" : "whiteAlpha.800"}
         _hover={{ textDecor: "none", color: "white" }}
       >

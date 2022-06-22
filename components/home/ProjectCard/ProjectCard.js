@@ -16,19 +16,7 @@ export default function ProjectCard(props) {
         </Text>
 
         {topics.map((topic) => (
-          <Badge
-            key={topic}
-            mr={2}
-            textTransform="initial"
-            bg="rgba(250, 240, 137, 0.1)"
-            fontSize="xs"
-            color="yellow.50"
-            cursor="pointer"
-            rounded="lg"
-            px={2}
-            transition="background .05s, color .05s"
-            _hover={{ bg: "yellow.200", color: "blackAlpha.900" }}
-          >
+          <Badge variant="web" mr={2} cursor="pointer" key={topic}>
             {topic}
           </Badge>
         ))}

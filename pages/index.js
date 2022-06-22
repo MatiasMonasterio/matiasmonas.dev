@@ -94,7 +94,7 @@ export default function Home({ profile, experiences, projects, networks }) {
           </Flex>
         </Center>
 
-        <VStack as="main" spacing={16}>
+        <VStack as="main" spacing={0}>
           <Box as="section">
             <Heading
               as="h2"
@@ -115,7 +115,7 @@ export default function Home({ profile, experiences, projects, networks }) {
             ))}
           </Box>
 
-          <Box id="experience" as="section">
+          <Box as="section" id="experience" pt={24}>
             <Heading
               as="h2"
               size="md"
@@ -137,7 +137,7 @@ export default function Home({ profile, experiences, projects, networks }) {
             </VStack>
           </Box>
 
-          <Box id="projects" as="section" w="100%">
+          <Box id="projects" as="section" w="100%" pt={24}>
             <Heading
               as="h2"
               size="md"
@@ -163,7 +163,7 @@ export default function Home({ profile, experiences, projects, networks }) {
             </Grid>
           </Box>
 
-          <Box id="contact" w="100%" as="section">
+          <Box id="contact" w="100%" as="section" pt={24}>
             <Heading
               as="h2"
               size="md"

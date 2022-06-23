@@ -1,4 +1,4 @@
-import { Head } from "components/common";
+import { Head } from "src/components/common";
 import { BsLinkedin, BsGithub, BsTwitter } from "react-icons/bs";
 import {
   Box,
@@ -14,11 +14,15 @@ import {
   VisuallyHidden,
 } from "@chakra-ui/react";
 
-import { BoxMotion } from "components/common";
-import { ProjectCard, ContactForm, ExperienceItem } from "components/home";
-import { github, linkedin, twitter } from "constants/social-networks";
-import { getProfile, getExperiencies, getMainProjects } from "services";
-import { sendContactForm } from "services/contact";
+import { BoxMotion } from "src/components/common";
+import { ProjectCard, ContactForm, ExperienceItem } from "src/components/home";
+import { github, linkedin, twitter } from "src/constants/social-networks";
+import { sendContactForm } from "src/services/contact";
+import {
+  getProfile,
+  getExperiencies,
+  getMainProjects,
+} from "src/services/server";
 
 export default function Home({ profile, experiences, projects, networks }) {
   const handleSubmitContactForm = async (form) => {

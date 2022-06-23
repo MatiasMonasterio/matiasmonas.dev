@@ -1,7 +1,7 @@
 import Script from "next/script";
 
-import AppLayout from "layouts";
-import { useGtagRouterEvents } from "hooks";
+import AppLayout from "src/layouts";
+import { useGtagRouterEvents } from "src/hooks";
 
 function App({ Component, pageProps }) {
   const { GA_TRACKING_ID } = useGtagRouterEvents();

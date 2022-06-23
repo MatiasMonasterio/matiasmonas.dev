@@ -1,6 +1,6 @@
 import { VisuallyHidden } from "@chakra-ui/react";
 
-import { Logo } from "components/common";
+import { Logo } from "src/components/common";
 import NavLink from "../NavLink";
 
 export default function HomeLink() {

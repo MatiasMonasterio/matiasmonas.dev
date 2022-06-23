@@ -1,7 +1,7 @@
 import dynamic from "next/dynamic";
 import { Box } from "@chakra-ui/react";
 
-import { useNavbarScroll } from "hooks";
+import { useNavbarScroll } from "src/hooks";
 
 const NavbarMobile = dynamic(() => import("./NavbarMobile"));
 const NavbarDesktop = dynamic(() => import("./NavbarDesktop"));

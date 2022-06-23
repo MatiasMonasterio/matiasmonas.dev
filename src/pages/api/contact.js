@@ -1,5 +1,7 @@
 const nodemailer = require("nodemailer");
 
+import { EMAIL_USER, EMAIL_PASSWORD } from "src/constants/env";
+
 export default function contact(req, res) {
   const { name, email, message } = req.body;
 
@@ -7,8 +9,8 @@ export default function contact(req, res) {
     puerto: 465,
     host: "smtp.gmail.com",
     auth: {
-      user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASSWORD,
+      user: EMAIL_USER,
+      pass: EMAIL_PASSWORD,
     },
     secure: true,
   });

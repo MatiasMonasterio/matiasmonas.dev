@@ -10,8 +10,8 @@ import {
   Text,
 } from "@chakra-ui/react";
 
-import { github, linkedin, twitter } from "constants/social-networks";
-import { Logo } from "components/common";
+import { github, linkedin, twitter } from "src/constants/social-networks";
+import { Logo } from "src/components/common";
 
 import {
   useNavbarMobileAnimate,

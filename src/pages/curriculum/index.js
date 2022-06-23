@@ -21,14 +21,14 @@ import { BsGithub, BsLinkedin } from "react-icons/bs";
 import { SiSitepoint } from "react-icons/si";
 import { BiArrowBack, BiLoaderAlt, BiDownload } from "react-icons/bi";
 
-import { Head } from "components/common";
-import { Section } from "components/curriculum/Section";
-import { SectionTitle } from "components/curriculum/SectionTitle";
-import { EducationRow } from "components/curriculum/EducationRow";
-import { ExperienceRow } from "components/curriculum/ExperienceRow";
-import { ComplementaryEducationRow } from "components/curriculum/ComplementaryEducationRow";
+import { Head } from "src/components/common";
+import { Section } from "src/components/curriculum/Section";
+import { SectionTitle } from "src/components/curriculum/SectionTitle";
+import { EducationRow } from "src/components/curriculum/EducationRow";
+import { ExperienceRow } from "src/components/curriculum/ExperienceRow";
+import { ComplementaryEducationRow } from "src/components/curriculum/ComplementaryEducationRow";
 
-import { layoutTypes } from "layouts/AppLayout";
+import { layoutTypes } from "src/layouts";
 
 const profile = {
   name: "Matias M. Monasterio",

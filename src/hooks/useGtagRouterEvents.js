@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 
-import { pageview, GA_TRACKING_ID } from "utils/gtag";
+import { GA_TRACKING_ID } from "src/constants/env";
+import { pageview } from "src/utils/gtag";
 
 export const useGtagRouterEvents = () => {
   const router = useRouter();

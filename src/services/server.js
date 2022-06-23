@@ -1,4 +1,4 @@
-import prisma from "prisma/prisma";
+import prisma from "src/utils/prisma";
 
 export const sendContactForm = async (formData) => {
   try {

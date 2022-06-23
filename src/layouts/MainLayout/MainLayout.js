@@ -1,9 +1,9 @@
 import dynamic from "next/dynamic";
 
 import { Box, usePrefersReducedMotion, Container } from "@chakra-ui/react";
-import { Footer, Navbar } from "components/common";
+import { Footer, Navbar } from "src/components/common";
 
-const Noise = dynamic(() => import("components/common/Noise"));
+const Noise = dynamic(() => import("src/components/common/Noise"));
 
 export default function MainLayout({ children }) {
   const reduceMotion = usePrefersReducedMotion();

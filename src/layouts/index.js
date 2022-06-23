@@ -4,7 +4,7 @@ import { ChakraProvider } from "@chakra-ui/react";
 import MainLayout from "./MainLayout";
 import DocLayout from "./DocLayout";
 
-import theme from "theme";
+import theme from "src/theme";
 
 const layoutComponents = {
   main: MainLayout,

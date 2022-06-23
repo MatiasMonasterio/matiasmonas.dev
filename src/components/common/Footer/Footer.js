@@ -9,7 +9,7 @@ import {
   VisuallyHidden,
 } from "@chakra-ui/react";
 import { BsLinkedin, BsGithub, BsTwitter } from "react-icons/bs";
-import { github, linkedin, twitter } from "constants/social-networks";
+import { github, linkedin, twitter } from "src/constants/social-networks";
 
 export default function Footer() {
   const [year, setYear] = useState(null);

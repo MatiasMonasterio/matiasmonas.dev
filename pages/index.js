@@ -16,10 +16,15 @@ import {
 
 import { BoxMotion } from "components/common";
 import { ProjectCard, ContactForm, ExperienceItem } from "components/home";
-import { getProfile, getExperiencies, getMainProjects } from "services";
 import { github, linkedin, twitter } from "constants/social-networks";
+import { getProfile, getExperiencies, getMainProjects } from "services";
+import { sendContactForm } from "services/contact";
 
 export default function Home({ profile, experiences, projects, networks }) {
+  const handleSubmitContactForm = async (form) => {
+    return await sendContactForm(form);
+  };
+
   return (
     <>
       <Head
@@ -131,7 +136,7 @@ export default function Home({ profile, experiences, projects, networks }) {
             <VStack spacing={6}>
               {experiences.map((experience) => (
                 <BoxMotion animation="fadeInUp" key={experience.id}>
-                  <ExperienceItem {...experience} />
+                  <ExperienceItem experience={experience} />
                 </BoxMotion>
               ))}
             </VStack>
@@ -157,7 +162,7 @@ export default function Home({ profile, experiences, projects, networks }) {
             >
               {projects.map((project) => (
                 <BoxMotion animation="fadeInUp" key={project.title}>
-                  <ProjectCard {...project} />
+                  <ProjectCard project={project} />
                 </BoxMotion>
               ))}
             </Grid>
@@ -178,7 +183,7 @@ export default function Home({ profile, experiences, projects, networks }) {
             </Heading>
 
             <BoxMotion animation="fadeInUp">
-              <ContactForm />
+              <ContactForm onSubmit={handleSubmitContactForm} />
             </BoxMotion>
           </Box>
         </VStack>

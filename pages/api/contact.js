@@ -36,10 +36,10 @@ export default function contact(req, res) {
   };
 
   transporter.sendMail(emailNotif, (error) => {
-    error && res.status(500).json({ error: error });
+    error && res.status(500).send({ error: error });
 
     transporter.sendMail(emailconfirm, (error) => {
-      error ? res.status(500).json({ error: error }) : res.status(200).send();
+      error ? res.status(500).send({ error: error }) : res.status(200).send();
     });
   });
 }

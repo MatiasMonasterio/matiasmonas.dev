@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useFormik } from "formik";
-import * as Yup from "yup";
+import { RiErrorWarningLine } from "react-icons/ri";
+import { BiMailSend } from "react-icons/bi";
 import {
   Box,
   Button,
@@ -19,13 +20,11 @@ import {
   Textarea,
   usePrefersReducedMotion,
 } from "@chakra-ui/react";
-import { RiErrorWarningLine } from "react-icons/ri";
-import { BiMailSend } from "react-icons/bi";
+
+import * as Yup from "yup";
 import confetti from "canvas-confetti";
 
-import { sendContactForm } from "services/contact";
-
-export default function ContactForm() {
+export default function ContactForm({ onSubmit }) {
   const reduceMotion = usePrefersReducedMotion();
 
   const [formState, setFormState] = useState({
@@ -58,22 +57,15 @@ export default function ContactForm() {
   const handleSubmit = async () => {
     setFormState((formState) => ({ ...formState, loading: true }));
 
-    const { error } = await sendContactForm(formik.values);
+    try {
+      await onSubmit(formik.values);
 
-    setFormState((formState) => ({
-      ...formState,
-      loading: false,
-      showModal: true,
-    }));
+      setFormState((formState) => ({
+        ...formState,
+        loading: false,
+        showModal: true,
+      }));
 
-    if (error) {
-      setModalMessage({
-        title: "Mmmm... Algo salio mal",
-        message: "Intente nuevamente más tarde",
-        success: false,
-        icon: <RiErrorWarningLine />,
-      });
-    } else {
       setModalMessage({
         title: "En hora buena!",
         message: "Resivirá un correo de confirmacion de envio",
@@ -90,6 +82,19 @@ export default function ContactForm() {
         });
 
       formik.resetForm();
+    } catch (error) {
+      setFormState((formState) => ({
+        ...formState,
+        loading: false,
+        showModal: true,
+      }));
+
+      setModalMessage({
+        title: "Mmmm... Algo salio mal",
+        message: "Intente nuevamente más tarde",
+        success: false,
+        icon: <RiErrorWarningLine />,
+      });
     }
   };
 

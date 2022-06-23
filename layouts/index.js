@@ -1,14 +1,14 @@
 // https://dop3ch3f.medium.com/layouts-in-next-js-c5599f9ea298
 import { ChakraProvider } from "@chakra-ui/react";
 
-import { Main } from "layouts/Main";
-import { Doc } from "layouts/Doc";
+import MainLayout from "./MainLayout";
+import DocLayout from "./DocLayout";
 
 import theme from "theme";
 
 const layoutComponents = {
-  main: Main,
-  doc: Doc,
+  main: MainLayout,
+  doc: DocLayout,
 };
 
 export const layoutTypes = {
@@ -16,7 +16,7 @@ export const layoutTypes = {
   doc: "doc",
 };
 
-export const AppLayout = (props) => {
+export default function AppLayout(props) {
   const Layout = layoutComponents[props.children.type.layout || "main"];
 
   return (
@@ -24,4 +24,4 @@ export const AppLayout = (props) => {
       <Layout {...props}>{props.children}</Layout>
     </ChakraProvider>
   );
-};
+}

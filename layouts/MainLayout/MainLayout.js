@@ -1,14 +1,11 @@
-// imported with common to ssr
 import dynamic from "next/dynamic";
 
 import { Box, usePrefersReducedMotion, Container } from "@chakra-ui/react";
 import { Footer, Navbar } from "components/common";
 
-const Noise = dynamic(() =>
-  import("components/common").then(({ Noise }) => Noise)
-);
+const Noise = dynamic(() => import("components/common/Noise"));
 
-export const Main = ({ children }) => {
+export default function MainLayout({ children }) {
   const reduceMotion = usePrefersReducedMotion();
 
   return (
@@ -24,4 +21,4 @@ export const Main = ({ children }) => {
       <Footer />
     </Box>
   );
-};
+}

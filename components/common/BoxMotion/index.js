@@ -1,1 +1,1 @@
-export { default as BoxMotion } from "./BoxMotion";
+export { default } from "./BoxMotion";

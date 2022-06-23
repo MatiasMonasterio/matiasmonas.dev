@@ -1,8 +1,8 @@
 import { Box, Heading, Text, Link, HStack, Badge } from "@chakra-ui/react";
 import { BiLinkExternal } from "react-icons/bi";
 
-export default function ProjectCard(props) {
-  const { title, description, topics, repository, website } = props;
+export default function ProjectCard({ project }) {
+  const { title, description, topics, repository, website } = project;
 
   return (
     <Box as="article">

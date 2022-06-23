@@ -1,6 +1,7 @@
-export * from "./Footer";
-export * from "./Navbar";
-export * from "./Logo";
-export * from "./Noise";
-export * from "./Head";
-export * from "./BoxMotion";
+export { default as Footer } from "./Footer";
+export { default as Navbar } from "./Navbar";
+export { default as Logo } from "./Logo";
+export { default as Noise } from "./Noise";
+export { default as Head } from "./Head";
+
+export { default as BoxMotion } from "./BoxMotion";

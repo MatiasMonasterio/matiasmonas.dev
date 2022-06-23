@@ -1,13 +1,9 @@
 import { Box, Heading, Link, Text } from "@chakra-ui/react";
 import { BiLinkExternal } from "react-icons/bi";
 
-export default function ExperienceItem({
-  company,
-  position,
-  description,
-  start,
-  end,
-}) {
+export default function ExperienceItem({ experience }) {
+  const { company, position, description, start, end } = experience;
+
   return (
     <Box>
       <Box mb={2}>

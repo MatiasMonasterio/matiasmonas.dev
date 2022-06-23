@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import NextLink from "next/link";
 import { Link } from "@chakra-ui/react";
 
-export const NavLink = ({ href, children }) => {
+export default function NavLink({ href, children }) {
   const router = useRouter();
 
   return (
@@ -17,4 +17,4 @@ export const NavLink = ({ href, children }) => {
       </Link>
     </NextLink>
   );
-};
+}

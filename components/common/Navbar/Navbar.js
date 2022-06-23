@@ -1,25 +1,13 @@
-import { useState, useEffect, useCallback } from "react";
-
+import dynamic from "next/dynamic";
 import { Box } from "@chakra-ui/react";
 
-import { NavbarMobile } from "./NavbarMobile";
-import { NavbarDesktop } from "./NavbarDesktop";
+import { useNavbarScroll } from "hooks";
+
+const NavbarMobile = dynamic(() => import("./NavbarMobile"));
+const NavbarDesktop = dynamic(() => import("./NavbarDesktop"));
 
 export default function Navbar({ scrollLimit }) {
-  const [hasScrolled, setHasScrolled] = useState(false);
-
-  const handleScroll = useCallback(() => {
-    if (!hasScrolled && window?.scrollY > scrollLimit) {
-      setHasScrolled(true);
-    } else if (hasScrolled && window?.scrollY <= scrollLimit) {
-      setHasScrolled(false);
-    }
-  }, [scrollLimit, hasScrolled]);
-
-  useEffect(() => {
-    document.addEventListener("scroll", handleScroll);
-    return () => document.removeEventListener("scroll", handleScroll);
-  }, [handleScroll]);
+  const { hasScrolled } = useNavbarScroll(scrollLimit);
 
   return (
     <Box

@@ -1,1 +1,1 @@
-export { default as ExperienceItem } from "./ExperienceItem";
+export { default } from "./ExperienceItem";

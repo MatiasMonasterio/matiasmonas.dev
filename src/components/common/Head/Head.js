@@ -9,12 +9,11 @@ import NextHead from "next/head";
 import { useRouter } from "next/router";
 import PropTypes from "prop-types";
 
-const BASE_URL = "https://matiasmonasdev.vercel.app";
-const LOCAL_BANNER = `${BASE_URL}/static/images/banner.png`;
+import { DOMAIN, BANNER_URL } from "src/constants/env";
 
 export default function Head({ title, description, image, type = "website" }) {
   const router = useRouter();
-  const metaImage = image ? image : LOCAL_BANNER;
+  const metaImage = image ? image : BANNER_URL;
 
   return (
     <NextHead>
@@ -30,7 +29,7 @@ export default function Head({ title, description, image, type = "website" }) {
       <meta name="robots" content="follow, index" />
       <meta name="description" content={description} />
       <meta name="image" content={metaImage} />
-      <link rel="canonical" href={`${BASE_URL}p${router.asPath}`} />
+      <link rel="canonical" href={`${DOMAIN}p${router.asPath}`} />
 
       {/* TWITTER */}
       <meta name="twitter:card" content="summary_large_image" />
@@ -47,7 +46,7 @@ export default function Head({ title, description, image, type = "website" }) {
       <meta property="og:site_name" content="Matias M. Monasterio" />
       <meta property="og:description" content={description} />
       <meta property="og:title" content={title} />
-      <meta property="og:url" content={`${BASE_URL}${router.asPath}`} />
+      <meta property="og:url" content={`${DOMAIN}${router.asPath}`} />
       <meta property="og:image" content={metaImage} />
       <meta property="og:image:width" content="1280" />
       <meta property="og:image:height" content="720" />

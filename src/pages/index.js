@@ -95,7 +95,7 @@ export default function Home({ profile, experiences, projects, networks }) {
                 mx="auto"
                 height={{ base: 150, md: 120 }}
                 loading="lazy"
-                src="static/images/profile.jpg"
+                src={profile.image}
                 minW={{ base: 150, md: 120 }}
                 pointerEvents="none"
               />

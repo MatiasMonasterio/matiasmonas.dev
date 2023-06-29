@@ -13,6 +13,7 @@ generator client {
 model Profile {
   id          String       @id @default(auto()) @map("_id") @db.ObjectId
   name        String
+  image       String
   position    String
   description String[]
   excerpt     String

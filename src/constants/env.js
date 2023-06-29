@@ -1,6 +1,7 @@
 // Environment
 export const NODE_ENV = process.env.NODE_ENV;
 export const DOMAIN = process.env.DOMAIN;
+export const BANNER_URL = process.env.BANNER_URL;
 
 // Email credentials
 export const EMAIL_USER = process.env.EMAIL_USER;
